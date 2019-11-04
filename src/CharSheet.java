@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class CharSheet {
+public abstract class CharSheet {
     private static String charName;
     private static String playerName;
     private static String background;
@@ -270,6 +270,6 @@ public class CharSheet {
                 "<br/>Wisdom: " + getWisdom() +
                 "<br/>Charisma: " + getCharisma() +
                 "<br/>Movement Speed: " + getMovementSpeed() + "ft" +
-                "<br/>Max HP: " + getMaxHP() + "</html>";
+                "<br/>Max HP: " + getMaxHP();
     }
 }

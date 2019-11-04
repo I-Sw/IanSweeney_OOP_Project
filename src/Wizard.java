@@ -14,4 +14,9 @@ public class Wizard extends Caster implements SpellCaster {
         setCharClass("Wizard");
         setSpellSlots("Wizard", level);
     }
+
+    public String toString()
+    {
+        return super.toString();
+    }
 }

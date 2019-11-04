@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Caster extends CharSheet {
     public static int[] spellSlots = new int[10];
-    private static int[] slotsUsed;
+    private static int[] slotsUsed = new int[10];
     private static ArrayList<Spell> spellsKnown;
 
     public Caster()
@@ -146,5 +146,32 @@ public class Caster extends CharSheet {
     public void selectSpells(String className, int level)
     {
         //Spell selection goes here
+    }
+
+    public String toString()
+    {
+        return super.toString() +
+                "<br/>" +
+                "<br/>Spell Slots... " +
+                "<br/>Level 1 Spell Slots: " + this.spellSlots[1] +
+                "<br/>Level 2 Spell Slots: " + this.spellSlots[2] +
+                "<br/>Level 3 Spell Slots: " + this.spellSlots[3] +
+                "<br/>Level 4 Spell Slots: " + this.spellSlots[4] +
+                "<br/>Level 5 Spell Slots: " + this.spellSlots[5] +
+                "<br/>Level 6 Spell Slots: " + this.spellSlots[6] +
+                "<br/>Level 7 Spell Slots: " + this.spellSlots[7] +
+                "<br/>Level 8 Spell Slots: " + this.spellSlots[8] +
+                "<br/>Level 9 Spell Slots: " + this.spellSlots[9] +
+                "<br/><br/>Spell Slots Used... " +
+                "<br/>Level 1 Spell Slots: " + this.slotsUsed[1] +
+                "<br/>Level 2 Spell Slots: " + this.slotsUsed[2] +
+                "<br/>Level 3 Spell Slots: " + this.slotsUsed[3] +
+                "<br/>Level 4 Spell Slots: " + this.slotsUsed[4] +
+                "<br/>Level 5 Spell Slots: " + this.slotsUsed[5] +
+                "<br/>Level 6 Spell Slots: " + this.slotsUsed[6] +
+                "<br/>Level 7 Spell Slots: " + this.slotsUsed[7] +
+                "<br/>Level 8 Spell Slots: " + this.slotsUsed[8] +
+                "<br/>Level 9 Spell Slots: " + this.slotsUsed[9] +
+                "</html>";
     }
 }
