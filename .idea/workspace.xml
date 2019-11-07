@@ -39,9 +39,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CharacterMenu">
+  <component name="RunManager" selected="Application.ImageTesting">
     <configuration name="CharacterMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CharacterMenu" />
+      <module name="IanSweeney_OOP_Project" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ImageTesting" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ImageTesting" />
       <module name="IanSweeney_OOP_Project" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -63,8 +70,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CharacterMenu" />
+        <item itemvalue="Application.ImageTesting" />
         <item itemvalue="Application.TestGui" />
+        <item itemvalue="Application.CharacterMenu" />
         <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
@@ -84,6 +92,7 @@
       <workItem from="1572707287936" duration="10627000" />
       <workItem from="1572788850450" duration="2378000" />
       <workItem from="1572883672162" duration="7593000" />
+      <workItem from="1573138683625" duration="18403000" />
     </task>
     <servers />
   </component>
@@ -95,7 +104,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

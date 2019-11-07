@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.lang.Character;
@@ -12,7 +13,6 @@ public class TestGui implements ActionListener {
 
     public static void main(String args[])
     {
-
         guiWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         guiWindow.setSize(1000,600);
 
@@ -65,6 +65,20 @@ public class TestGui implements ActionListener {
         }
         */
 
+
+
+        java.net.URL imgUrl = TestGui.class.getResource("images/Paladin.png");
+        ImageIcon image = new ImageIcon(imgUrl);
+        image.paintIcon(guiWindow,null,100,100);
+
+
+        JLabel imageLabel = new JLabel(image);
+        imageLabel.setBounds(10, 10, 100, 100);
+        System.out.println(image.getIconHeight());
+
+        guiWindow.add(imageLabel);
+        guiWindow.repaint();
+        imageLabel.setVisible(true);
     }
 
     public void displayChar()
