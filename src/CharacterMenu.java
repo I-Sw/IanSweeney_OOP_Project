@@ -6,7 +6,7 @@ import java.lang.Character;
 
 public class CharacterMenu implements ActionListener {
 
-    //Creating the main gui window, character menu (for action listener) and character list menu dropdown
+    //Creating the main gui window, and gui components
     private static JFrame guiWindow = new JFrame("Character Control");
     private static CharacterMenu m = new CharacterMenu();
     private static JMenu charList = new JMenu("Characters");
@@ -20,8 +20,6 @@ public class CharacterMenu implements ActionListener {
     ArrayList<Wizard> wizards = new ArrayList<Wizard>();
     //Sorcerer characters
     ArrayList<Sorcerer> sorcerers = new ArrayList<Sorcerer>();
-
-
 
     public static void main(String args[])
     {

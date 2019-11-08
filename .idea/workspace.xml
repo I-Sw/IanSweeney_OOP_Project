@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="257952c3-40c6-4c3b-8d52-25c26aa27783" name="Default Changelist" comment="Added Sorcerer class and button handling to return it">
-      <change afterPath="$PROJECT_DIR$/src/Sorcerer.java" afterDir="false" />
+    <list default="true" id="257952c3-40c6-4c3b-8d52-25c26aa27783" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/Caster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/Caster.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/CharacterMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/CharacterMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/ImageTesting.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/ImageTesting.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/META-INF/IanSweeney_OOP_Project.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Caster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Caster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CharacterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharacterMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ImageTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageTesting.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,8 +97,16 @@
       <workItem from="1572788850450" duration="2378000" />
       <workItem from="1572883672162" duration="7593000" />
       <workItem from="1573138683625" duration="18403000" />
-      <workItem from="1573211297667" duration="3865000" />
+      <workItem from="1573211297667" duration="5250000" />
     </task>
+    <task id="LOCAL-00001" summary="Added Sorcerer class and button handling to return it">
+      <created>1573215190206</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1573215190206</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
