@@ -33,98 +33,91 @@ public class Caster extends CharSheet {
     {
         if(className.equals("Bard") || className.equals("Cleric")  || className.equals("Druid")  || className.equals("Wizard")  || className.equals("Sorcerer"))
         {
-            switch(level)
-            {
-                case 1:
-                    inputSpellSlots(2, 0, 0, 0, 0, 0, 0, 0, 0);
-                case 2:
-                    inputSpellSlots(3, 0, 0, 0, 0, 0, 0, 0, 0);
-                case 3:
-                    inputSpellSlots(4, 2, 0, 0, 0, 0, 0, 0, 0);
-                case 4:
-                    inputSpellSlots(4, 3, 0, 0, 0, 0, 0, 0, 0);
-                case 5:
-                    inputSpellSlots(4, 3, 2, 0, 0, 0, 0, 0, 0);
-                case 6:
-                    inputSpellSlots(4, 3, 3, 0, 0, 0, 0, 0, 0);
-                case 7:
-                    inputSpellSlots(4, 3, 3, 1, 0, 0, 0, 0, 0);
-                case 8:
-                    inputSpellSlots(4, 3, 3, 2, 0, 0, 0, 0, 0);
-                case 9:
-                    inputSpellSlots(4, 3, 3, 3, 1, 0, 0, 0, 0);
-                case 10:
-                    inputSpellSlots(4, 3, 3, 3, 2, 0, 0, 0, 0);
-                case 11:
-                    inputSpellSlots(4, 3, 3, 3, 2, 1, 0, 0, 0);
-                case 12:
-                    inputSpellSlots(4, 3, 3, 3, 2, 1, 0, 0, 0);
-                case 13:
-                    inputSpellSlots(4, 3, 3, 3, 2, 1, 1, 0, 0);
-                case 14:
-                    inputSpellSlots(4, 3, 3, 3, 2, 1, 1, 0, 0);
-                case 15:
-                    inputSpellSlots(4, 3, 3, 3, 2, 1, 1, 1, 0);
-                case 16:
-                    inputSpellSlots(4, 3, 3, 3, 2, 1, 1, 1, 0);
-                case 17:
-                    inputSpellSlots(4, 3, 3, 3, 2, 1, 1, 1, 1);
-                case 18:
-                    inputSpellSlots(4, 3, 3, 3, 3, 1, 1, 1, 1);
-                case 19:
-                    inputSpellSlots(4, 3, 3, 3, 3, 2, 1, 1, 1);
-                case 20:
-                    inputSpellSlots(4, 3, 3, 3, 3, 2, 2, 1, 1);
-            }
+            if(level == 1)
+                inputSpellSlots(2, 0, 0, 0, 0, 0, 0, 0, 0);
+            if(level == 2)
+                inputSpellSlots(3, 0, 0, 0, 0, 0, 0, 0, 0);
+            if(level == 3)
+                inputSpellSlots(4, 2, 0, 0, 0, 0, 0, 0, 0);
+            if(level == 4)
+                inputSpellSlots(4, 3, 0, 0, 0, 0, 0, 0, 0);
+            if(level == 5)
+                inputSpellSlots(4, 3, 2, 0, 0, 0, 0, 0, 0);
+            if(level == 6)
+                inputSpellSlots(4, 3, 3, 0, 0, 0, 0, 0, 0);
+            if(level == 7)
+                inputSpellSlots(4, 3, 3, 1, 0, 0, 0, 0, 0);
+            if(level == 8)
+                inputSpellSlots(4, 3, 3, 2, 0, 0, 0, 0, 0);
+            if(level == 9)
+                inputSpellSlots(4, 3, 3, 3, 1, 0, 0, 0, 0);
+            if(level == 10)
+                inputSpellSlots(4, 3, 3, 3, 2, 0, 0, 0, 0);
+            if(level == 11)
+                inputSpellSlots(4, 3, 3, 3, 2, 1, 0, 0, 0);
+            if(level == 12)
+                inputSpellSlots(4, 3, 3, 3, 2, 1, 0, 0, 0);
+            if(level == 13)
+                inputSpellSlots(4, 3, 3, 3, 2, 1, 1, 0, 0);
+            if(level == 14)
+                inputSpellSlots(4, 3, 3, 3, 2, 1, 1, 0, 0);
+            if(level == 15)
+                inputSpellSlots(4, 3, 3, 3, 2, 1, 1, 1, 0);
+            if(level == 16)
+                inputSpellSlots(4, 3, 3, 3, 2, 1, 1, 1, 0);
+            if(level == 17)
+                inputSpellSlots(4, 3, 3, 3, 2, 1, 1, 1, 1);
+            if(level == 18)
+                inputSpellSlots(4, 3, 3, 3, 3, 1, 1, 1, 1);
+            if(level == 19)
+                inputSpellSlots(4, 3, 3, 3, 3, 2, 1, 1, 1);
+            if(level == 20)
+                inputSpellSlots(4, 3, 3, 3, 3, 2, 2, 1, 1);
         }
 
         if(className.equals("Paladin") || className.equals("Ranger"))
         {
-            switch(level)
-            {
-                case 1:
+            if(level == 1)
                     inputSpellSlots(0, 0, 0, 0, 0, 0, 0, 0, 0);
-                case 2:
+            if(level == 2)
                     inputSpellSlots(2, 0, 0, 0, 0, 0, 0, 0, 0);
-                case 3:
+            if(level == 3)
                     inputSpellSlots(3, 0, 0, 0, 0, 0, 0, 0, 0);
-                case 4:
+            if(level == 4)
                     inputSpellSlots(3, 0, 0, 0, 0, 0, 0, 0, 0);
-                case 5:
+            if(level == 5)
                     inputSpellSlots(4, 2, 0, 0, 0, 0, 0, 0, 0);
-                case 6:
+            if(level == 6)
                     inputSpellSlots(4, 2, 0, 0, 0, 0, 0, 0, 0);
-                case 7:
+            if(level == 7)
                     inputSpellSlots(4, 3, 0, 0, 0, 0, 0, 0, 0);
-                case 8:
+            if(level == 8)
                     inputSpellSlots(4, 3, 0, 0, 0, 0, 0, 0, 0);
-                case 9:
+            if(level == 9)
                     inputSpellSlots(4, 3, 2, 0, 0, 0, 0, 0, 0);
-                case 10:
+            if(level == 10)
                     inputSpellSlots(4, 3, 2, 0, 0, 0, 0, 0, 0);
-                case 11:
+            if(level == 11)
                     inputSpellSlots(4, 3, 3, 0, 0, 0, 0, 0, 0);
-                case 12:
+            if(level == 12)
                     inputSpellSlots(4, 3, 3, 0, 0, 0, 0, 0, 0);
-                case 13:
+            if(level == 13)
                     inputSpellSlots(4, 3, 3, 1, 0, 0, 0, 0, 0);
-                case 14:
+            if(level == 14)
                     inputSpellSlots(4, 3, 3, 1, 0, 0, 0, 0, 0);
-                case 15:
+            if(level == 15)
                     inputSpellSlots(4, 3, 3, 2, 0, 0, 0, 0, 0);
-                case 16:
+            if(level == 16)
                     inputSpellSlots(4, 3, 3, 2, 0, 0, 0, 0, 0);
-                case 17:
+            if(level == 17)
                     inputSpellSlots(4, 3, 3, 3, 1, 0, 0, 0, 0);
-                case 18:
+            if(level == 18)
                     inputSpellSlots(4, 3, 3, 3, 1, 0, 0, 0, 0);
-                case 19:
+            if(level == 19)
                     inputSpellSlots(4, 3, 3, 3, 2, 0, 0, 0, 0);
-                case 20:
+            if(level == 20)
                     inputSpellSlots(4, 3, 3, 3, 2, 0, 0, 0, 0);
-            }
         }
-
         System.out.println("Spell Slots Set");
     }
 

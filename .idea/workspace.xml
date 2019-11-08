@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="257952c3-40c6-4c3b-8d52-25c26aa27783" name="Default Changelist" comment="" />
+    <list default="true" id="257952c3-40c6-4c3b-8d52-25c26aa27783" name="Default Changelist" comment="Added Sorcerer class and button handling to return it">
+      <change afterPath="$PROJECT_DIR$/src/Sorcerer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/Caster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/Caster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/CharacterMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/CharacterMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/ImageTesting.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/ImageTesting.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/META-INF/IanSweeney_OOP_Project.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Caster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Caster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CharacterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharacterMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageTesting.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +33,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -39,7 +50,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ImageTesting">
+  <component name="RunManager" selected="Application.CharacterMenu">
     <configuration name="CharacterMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CharacterMenu" />
       <module name="IanSweeney_OOP_Project" />
@@ -70,9 +81,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CharacterMenu" />
         <item itemvalue="Application.ImageTesting" />
         <item itemvalue="Application.TestGui" />
-        <item itemvalue="Application.CharacterMenu" />
         <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
@@ -93,6 +104,7 @@
       <workItem from="1572788850450" duration="2378000" />
       <workItem from="1572883672162" duration="7593000" />
       <workItem from="1573138683625" duration="18403000" />
+      <workItem from="1573211297667" duration="3865000" />
     </task>
     <servers />
   </component>
@@ -111,5 +123,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Sorcerer class and button handling to return it" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Sorcerer class and button handling to return it" />
   </component>
 </project>

@@ -18,7 +18,6 @@ public class ImageTesting {
         //GUI.add(scrollBar);
         //GUIwindow.add(GUI);
 
-
         java.net.URL battlemapUrl = TestGui.class.getResource("images/battlemap.jpg");
         ImageIcon battlemap = new ImageIcon(battlemapUrl);
 

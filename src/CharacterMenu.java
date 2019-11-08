@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.lang.Character;
@@ -9,12 +10,17 @@ public class CharacterMenu implements ActionListener {
     private static JFrame guiWindow = new JFrame("Character Control");
     private static CharacterMenu m = new CharacterMenu();
     private static JMenu charList = new JMenu("Characters");
-    private static JLabel charInfo = new JLabel("");
-    //Creates a list of strings for storing character names and classes for retrieval from the following Array
+    private static JLabel charInfoLabel = new JLabel("");
+    private static JPanel charInfo = new JPanel();
+    //Creates ArrayLists for storing  and returning character info
     ArrayList<String> characters = new ArrayList<String>();
-    //Creating a list and counter for storing Wizard characters
+    ArrayList<Integer> charArrayPos = new ArrayList<Integer>();
+    //Creating lists for storing characters by type
+    //Wizard characters
     ArrayList<Wizard> wizards = new ArrayList<Wizard>();
-    private static int numWizards;
+    //Sorcerer characters
+    ArrayList<Sorcerer> sorcerers = new ArrayList<Sorcerer>();
+
 
 
     public static void main(String args[])
@@ -49,27 +55,49 @@ public class CharacterMenu implements ActionListener {
         guiMenuBar.add(addChar);
         guiMenuBar.add(charList);
         //Adding character info display to the GUI
-        charInfo.setBounds(10,0, 300,800);
-        guiWindow.add(charInfo);
-        guiWindow.setLayout(null);
+        charInfo.add(charInfoLabel);
+        guiWindow.add(charInfo, BorderLayout.WEST);
         guiWindow.setVisible(true);
     }// End main
 
     public void actionPerformed(ActionEvent e)
     {
+        //Returning a String from the ActionEvent to find which button was pressed
         String s = e.getActionCommand();
-        System.out.println(s);
-
-        //If button pressed is "New Wizard"...
-        if(s.equals("New Wizard"))
+        System.out.println(s.substring(0,3));
+        //If button pressed is to add a new character
+        if(s.substring(0,3).equals("New"))
         {
-            //Reads in character name from user --- TEMPORARY - to be replaced with gui allowing all data to be input at once
-            String charName = JOptionPane.showInputDialog("Enter Wizard Name");
-            //Creates new Wizard --- TEMPORARY - Currently using hard coded values, see above comment
-            Wizard wizard = new Wizard(charName, "PlayerName", "Background", "Alignment", "Race", 5, 10, 12, 12, 18, 16, 14, 30, 20);
-            wizards.add(wizard);
-            //Creating charInfo string to store character name and class which is added to the character list for character retrieval
-            String charInfo = (characters.size() + 1 ) + " - Wizard - " + charName;
+            //Creating charInfo string for later use
+            String charInfo = "";
+
+            //If chosen class is Wizard
+            if(s.equals("New Wizard"))
+            {
+                //Reads in character name from user --- TEMPORARY --- to be replaced with gui allowing all data to be input at once
+                String charName = JOptionPane.showInputDialog("Enter Wizard Name");
+                //Creates new Wizard --- TEMPORARY --- Currently using hard coded values, see above comment
+                Wizard wizard = new Wizard(charName, "PlayerName", "Background", "Alignment", "Race", 5, 10, 12, 12, 18, 16, 14, 30, 20);
+                wizards.add(wizard);
+                //Assigning charInfo string and charArrayPos int for storage in arrays to use to retrieve character info
+                charInfo = (characters.size() + 1 ) + " - Wizard - " + charName;
+                charArrayPos.add(wizards.size()-1);
+            }
+
+            //If chosen class is Sorcerer
+            if(s.equals("New Sorcerer"))
+            {
+                //Reads in character name from user --- TEMPORARY --- to be replaced with gui allowing all data to be input at once
+                String charName = JOptionPane.showInputDialog("Enter Sorcerer Name");
+                //Creates new Wizard --- TEMPORARY --- Currently using hard coded values, see above comment
+                Sorcerer sorcerer = new Sorcerer(charName, "PlayerName", "Background", "Alignment", "Race", 5, 10, 12, 12, 18, 16, 14, 30, 20);
+                sorcerers.add(sorcerer);
+                //Assigning charInfo string and charArrayPos int for storage in arrays to use to retrieve character info
+                charInfo = (characters.size() + 1 ) + " - Sorcerer - " + charName;
+                charArrayPos.add(sorcerers.size()-1);
+            }
+
+            //Adding charInfo the the characters arrayList
             characters.add(charInfo);
             //Creating a new JMenuItem with the character info corresponding to the new character
             JMenuItem character = new JMenuItem(charInfo);
@@ -81,17 +109,26 @@ public class CharacterMenu implements ActionListener {
             guiWindow.repaint();
         }
 
+        //If button pressed starts with a digit (character return buttons all do)
         if(Character.isDigit(s.charAt(0)))
         {
-            charInfo.setText("");
-            System.out.println("Character Chosen");
-            char num = s.charAt(0);
-            System.out.println("num: " + num);
-            int number = (Character.getNumericValue(num) - 1);
-            charInfo.setText((wizards.get(number)).toString());
-            charInfo.setBounds(10,0, 300,800);
-            guiWindow.add(charInfo);
-            guiWindow.setLayout(null);
+            //Returns the position of the character in the characters array based on its button text
+            int number = (Character.getNumericValue(s.charAt(0)) - 1);
+            //Uses a for loop which searches through the characters of the string s to return the charClass using a substring
+            String charClass = "";
+            for(int i=4; i < s.length(); i++)
+            {
+                if(s.charAt(i) == '-')
+                    charClass = s.substring(4,i-1);
+            }
+            //Using the new charClass string to decide which specific constructor should be called
+            //Constructing a wizard
+            if(charClass.equals("Wizard"))
+                charInfoLabel.setText((wizards.get(charArrayPos.get(number))).toString());
+            //Constructing a sorcerer
+            if(charClass.equals("Sorcerer"))
+                charInfoLabel.setText((sorcerers.get(charArrayPos.get(number))).toString());
+
             guiWindow.repaint();
         }
     }// End actionPerformed
