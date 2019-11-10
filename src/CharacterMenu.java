@@ -8,7 +8,8 @@ public class CharacterMenu implements ActionListener {
 
     //Creating the main gui window, and gui components
     private static JFrame guiWindow = new JFrame("Character Control");
-    private static CharacterMenu m = new CharacterMenu();
+    //private static CharacterMenu m = new CharacterMenu();
+    private static JMenuBar guiMenuBar = new JMenuBar();
     private static JMenu charList = new JMenu("Characters");
     private static JLabel charInfoLabel = new JLabel("");
     private static JPanel charInfo = new JPanel();
@@ -21,13 +22,13 @@ public class CharacterMenu implements ActionListener {
     //Sorcerer characters
     ArrayList<Sorcerer> sorcerers = new ArrayList<Sorcerer>();
 
-    public static void main(String args[])
+    public CharacterMenu()
     {
         //Setting the properties of the JFrame window
-        guiWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //guiWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         guiWindow.setSize(1000,800);
         //Creating a new JMenuBar
-        JMenuBar guiMenuBar = new JMenuBar();
+
         //Creating an "Add Character" menu dropdown
         JMenu addChar = new JMenu("Add Character");
         //Creating menu items for the dropdown
@@ -43,11 +44,11 @@ public class CharacterMenu implements ActionListener {
         addChar.add(addBarbarian);
         addChar.add(addCleric);
         //Adding the action listener to the dropdown items
-        addWizard.addActionListener(m);
-        addSorcerer.addActionListener(m);
-        addBarbarian.addActionListener(m);
-        addRogue.addActionListener(m);
-        addCleric.addActionListener(m);
+        addWizard.addActionListener(this);
+        addSorcerer.addActionListener(this);
+        addBarbarian.addActionListener(this);
+        addRogue.addActionListener(this);
+        addCleric.addActionListener(this);
         //Placing the menu bar on the JFrame, adding the dropdown menus to the menu bar and setting the JFrame to visible
         guiWindow.setJMenuBar(guiMenuBar);
         guiMenuBar.add(addChar);
@@ -56,7 +57,7 @@ public class CharacterMenu implements ActionListener {
         charInfo.add(charInfoLabel);
         guiWindow.add(charInfo, BorderLayout.WEST);
         guiWindow.setVisible(true);
-    }// End main
+    }// End menu constructor
 
     public void actionPerformed(ActionEvent e)
     {
@@ -100,7 +101,7 @@ public class CharacterMenu implements ActionListener {
             //Creating a new JMenuItem with the character info corresponding to the new character
             JMenuItem character = new JMenuItem(charInfo);
             //Adding the action listener to this new menu item
-            character.addActionListener(m);
+            character.addActionListener(this);
             //Adding the new menu item to the charList JMenu
             charList.add(character);
             //Repainting the window so the new character appears in the character list

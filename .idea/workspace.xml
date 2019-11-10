@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="257952c3-40c6-4c3b-8d52-25c26aa27783" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/CharacterMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/CharacterMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CharacterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharacterMenu.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,15 +23,17 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="1SvfkgidIc9hZUR2UfONxHvwov3" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/Program Files/Git/cmd/git.exe" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -43,7 +47,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CharacterMenu">
+  <component name="RunManager" selected="Application.SimpleAudioPlayer">
     <configuration name="CharacterMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CharacterMenu" />
       <module name="IanSweeney_OOP_Project" />
@@ -58,8 +62,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test" />
+    <configuration name="MainMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainMenu" />
+      <module name="IanSweeney_OOP_Project" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimpleAudioPlayer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SimpleAudioPlayer" />
       <module name="IanSweeney_OOP_Project" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -74,10 +85,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CharacterMenu" />
+        <item itemvalue="Application.SimpleAudioPlayer" />
+        <item itemvalue="Application.MainMenu" />
         <item itemvalue="Application.ImageTesting" />
+        <item itemvalue="Application.CharacterMenu" />
         <item itemvalue="Application.TestGui" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -98,6 +110,7 @@
       <workItem from="1572883672162" duration="7593000" />
       <workItem from="1573138683625" duration="18403000" />
       <workItem from="1573211297667" duration="5250000" />
+      <workItem from="1573396191310" duration="6765000" />
     </task>
     <task id="LOCAL-00001" summary="Added Sorcerer class and button handling to return it">
       <created>1573215190206</created>
