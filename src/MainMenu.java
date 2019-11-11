@@ -31,7 +31,7 @@ public class MainMenu implements ActionListener
     {
         //Returning a String from the ActionEvent to find which button was pressed
         String s = e.getActionCommand();
-
+        //Action Handlers to open the different menus
         if(s.equals("Character Menu"))
         {
             charMenu.openCharMenu();

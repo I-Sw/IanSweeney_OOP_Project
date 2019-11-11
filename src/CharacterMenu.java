@@ -8,21 +8,19 @@ public class CharacterMenu implements ActionListener {
 
     //Creating the main gui window, and gui components
     private static JFrame guiWindow = new JFrame("Character Control");
-    //private static CharacterMenu m = new CharacterMenu();
     private static JMenuBar guiMenuBar = new JMenuBar();
     private static JMenu charList = new JMenu("Characters");
     private static JLabel charInfoLabel = new JLabel("");
     private static JPanel charInfo = new JPanel();
     //Creating an LinkedList to store character information
-    LinkedList<CharSheet> charSheets = new LinkedList<CharSheet>();
+    public LinkedList<CharSheet> characters = new LinkedList<CharSheet>();
+    //Creates an object of the character info input menu
+    public CharInfoInput charInput = new  CharInfoInput();
 
     public CharacterMenu()
     {
         //Setting the properties of the JFrame window
-        //guiWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         guiWindow.setSize(1000,800);
-        //Creating a new JMenuBar
-
         //Creating an "Add Character" menu dropdown
         JMenu addChar = new JMenu("Add Character");
         //Creating menu items for the dropdown
@@ -54,6 +52,7 @@ public class CharacterMenu implements ActionListener {
 
     public void openCharMenu()
     {
+        //This method is used by the Main Menu to open the Character Menu
         guiWindow.setVisible(true);
     }
 
@@ -71,14 +70,14 @@ public class CharacterMenu implements ActionListener {
             //If chosen class is Wizard
             if(s.equals("New Wizard"))
             {
+                charInput.openCharInput();
                 //Reads in character name from user --- TEMPORARY --- to be replaced with gui allowing all data to be input at once
                 String charName = JOptionPane.showInputDialog("Enter Wizard Name");
                 //Creates new Wizard --- TEMPORARY --- Currently using hard coded values, see above comment
                 Wizard wizard = new Wizard(charName, "PlayerName", "Background", "Alignment", "Race", 5, 10, 12, 12, 18, 16, 14, 30, 20);
-                charSheets.add(wizard);
+                characters.add(wizard);
                 //Assigning charInfo string and charArrayPos int for storage in arrays to use to retrieve character info
-                charInfo = (charSheets.size()) + " - Wizard - " + charName;
-                //charArrayPos.add(wizards.size()-1);
+                charInfo = (characters.size()) + " - Wizard - " + charName;
             }
 
             //If chosen class is Sorcerer
@@ -88,9 +87,9 @@ public class CharacterMenu implements ActionListener {
                 String charName = JOptionPane.showInputDialog("Enter Sorcerer Name");
                 //Creates new Wizard --- TEMPORARY --- Currently using hard coded values, see above comment
                 Sorcerer sorcerer = new Sorcerer(charName, "PlayerName", "Background", "Alignment", "Race", 5, 10, 12, 12, 18, 16, 14, 30, 20);
-                charSheets.add(sorcerer);
+                characters.add(sorcerer);
                 //Assigning charInfo string and charArrayPos int for storage in arrays to use to retrieve character info
-                charInfo = (charSheets.size()) + " - Sorcerer - " + charName;
+                charInfo = (characters.size()) + " - Sorcerer - " + charName;
             }
 
             //Creating a new JMenuItem with the character info corresponding to the new character
@@ -111,10 +110,10 @@ public class CharacterMenu implements ActionListener {
             //Returns the position of the character in the characters array based on its button text
             int number = (Character.getNumericValue(s.charAt(0)) - 1);
 
-            System.out.println("Char Array Size: " + charSheets.size());
-            System.out.println("Char Name: " + charSheets.get(number).getCharName());
+            System.out.println("Char Array Size: " + characters.size());
+            System.out.println("Char Name: " + characters.get(number).getCharName());
             //Sets text of the character info label
-            charInfoLabel.setText(charSheets.get(number).toString());
+            charInfoLabel.setText(characters.get(number).toString());
             //Repaints the GUI window to account for the changes in the info label
             guiWindow.repaint();
         }
