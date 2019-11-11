@@ -4,12 +4,13 @@ import java.awt.event.*;
 
 public class MainMenu implements ActionListener
 {
-    public static MainMenu m = new MainMenu();
+    private static MainMenu m = new MainMenu();
+    private static CharacterMenu charMenu = new CharacterMenu();
+
     public static void main(String args[])
     {
         menuGui();
     }
-
     private static void menuGui()
     {
         JFrame mainMenuGui = new JFrame("Main Menu");
@@ -23,6 +24,7 @@ public class MainMenu implements ActionListener
         mapMenuButton.addActionListener(m);
         mainMenuGui.add(mapMenuButton);
         mainMenuGui.setVisible(true);
+
     }
 
     public void actionPerformed(ActionEvent e)
@@ -32,7 +34,7 @@ public class MainMenu implements ActionListener
 
         if(s.equals("Character Menu"))
         {
-            CharacterMenu charMenu = new CharacterMenu();
+            charMenu.openCharMenu();
         }
     }
 }

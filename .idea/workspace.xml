@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="257952c3-40c6-4c3b-8d52-25c26aa27783" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
+    <list default="true" id="257952c3-40c6-4c3b-8d52-25c26aa27783" name="Default Changelist" comment="Moved usage to a main menu and refactored CharacterMenu to work with the new menu system">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/AudioMenu.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/CharacterMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/CharacterMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/MainMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/SimpleAudioPlayer.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CharacterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharacterMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +50,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.SimpleAudioPlayer">
+  <component name="RunManager" selected="Application.MainMenu">
     <configuration name="CharacterMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CharacterMenu" />
       <module name="IanSweeney_OOP_Project" />
@@ -85,8 +88,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SimpleAudioPlayer" />
         <item itemvalue="Application.MainMenu" />
+        <item itemvalue="Application.SimpleAudioPlayer" />
         <item itemvalue="Application.ImageTesting" />
         <item itemvalue="Application.CharacterMenu" />
         <item itemvalue="Application.TestGui" />
@@ -110,7 +113,8 @@
       <workItem from="1572883672162" duration="7593000" />
       <workItem from="1573138683625" duration="18403000" />
       <workItem from="1573211297667" duration="5250000" />
-      <workItem from="1573396191310" duration="6765000" />
+      <workItem from="1573396191310" duration="7042000" />
+      <workItem from="1573484915596" duration="2686000" />
     </task>
     <task id="LOCAL-00001" summary="Added Sorcerer class and button handling to return it">
       <created>1573215190206</created>
@@ -119,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573215190206</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Moved usage to a main menu and refactored CharacterMenu to work with the new menu system">
+      <created>1573429261124</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1573429261124</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +151,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Sorcerer class and button handling to return it" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Sorcerer class and button handling to return it" />
+    <MESSAGE value="Moved usage to a main menu and refactored CharacterMenu to work with the new menu system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved usage to a main menu and refactored CharacterMenu to work with the new menu system" />
   </component>
 </project>
