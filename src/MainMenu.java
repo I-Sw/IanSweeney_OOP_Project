@@ -11,6 +11,7 @@ public class MainMenu implements ActionListener
     {
         menuGui();
     }
+
     private static void menuGui()
     {
         JFrame mainMenuGui = new JFrame("Main Menu");
@@ -24,7 +25,6 @@ public class MainMenu implements ActionListener
         mapMenuButton.addActionListener(m);
         mainMenuGui.add(mapMenuButton);
         mainMenuGui.setVisible(true);
-
     }
 
     public void actionPerformed(ActionEvent e)
