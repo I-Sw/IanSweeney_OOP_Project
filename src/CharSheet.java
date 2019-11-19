@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class CharSheet {
+public abstract class CharSheet implements Serializable {
     private static String charName;
     private static String playerName;
     private static String background;
@@ -240,22 +241,6 @@ public abstract class CharSheet {
 
     public String toString()
     {
-        /*return "Character Name: " + getCharName() +
-                "\nPlayer Name: " + getPlayerName() +
-                "\nBackground: " + getBackground() +
-                "\nAlignment: " + getAlignment() +
-                "\nRace: " + getRace() +
-                "\nClass: " + getCharClass() +
-                "\nLevel: " + getLevel() +
-                "\nStrength: " + getStrength() +
-                "\nDexterity: " + getDexterity() +
-                "\nConstitution: " + getConstitution() +
-                "\nIntelligence: " + getIntelligence() +
-                "\nWisdom: " + getWisdom() +
-                "\nCharisma: " + getCharisma() +
-                "\nMovement Speed: " + getMovementSpeed() + "ft" +
-                "\nMax HP: " + getMaxHP();*/
-
         return "<html>Character Name: " + getCharName() +
                 "<br/>Player Name: " + getPlayerName() +
                 "<br/>Background: " + getBackground() +

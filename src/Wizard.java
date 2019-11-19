@@ -19,4 +19,9 @@ public class Wizard extends Caster implements SpellCaster {
     {
         return super.toString();
     }
+
+    @Override
+    public void addSpell() {
+
+    }
 }
