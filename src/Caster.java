@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Caster extends CharSheet {
+public class Caster extends CharSheet implements Serializable {
     public static int[] spellSlots = new int[10];
     private static int[] slotsUsed = new int[10];
     private static ArrayList<Spell> spellsKnown;

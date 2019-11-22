@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Wizard extends Caster implements SpellCaster {
+public class Wizard extends Caster implements SpellCaster, Serializable {
     private static ArrayList<String> spellsPrepared;
 
     public Wizard()

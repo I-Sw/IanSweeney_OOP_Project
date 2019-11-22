@@ -1,8 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.desktop.SystemEventListener;
 import java.awt.event.*;
 import java.io.*;
 import java.lang.Character;
+import java.lang.reflect.Array;
 import java.util.LinkedList;
 
 public class CharacterMenu implements ActionListener{
@@ -119,12 +121,13 @@ public class CharacterMenu implements ActionListener{
                 FileOutputStream fileOut = new FileOutputStream(charStorage);
                 ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
                 objectOut.writeObject(characters);
+                objectOut.flush();
                 objectOut.close();
 
-                FileOutputStream fileOut2 = new FileOutputStream(charMenuStorage);
+                /*FileOutputStream fileOut2 = new FileOutputStream(charMenuStorage);
                 ObjectOutputStream objectOut2 = new ObjectOutputStream(fileOut2);
                 objectOut2.writeObject(charList);
-                objectOut2.close();
+                objectOut2.close();*/
             }
             catch (IOException ex) {
                 ex.printStackTrace();
@@ -142,11 +145,13 @@ public class CharacterMenu implements ActionListener{
                 characters = (LinkedList<CharSheet>) objectIn.readObject();
                 objectIn.close();
 
-                FileInputStream fileIn2 = new FileInputStream(charMenuStorage);
+                System.out.println(characters.get(0).getCharName());
+
+                /*FileInputStream fileIn2 = new FileInputStream(charMenuStorage);
                 ObjectInputStream objectIn2 = new ObjectInputStream(fileIn2);
                 charList = (JMenu) objectIn2.readObject();
                 objectIn.close();
-                guiWindow.repaint();
+                guiWindow.repaint();*/
             }
             catch (IOException | ClassNotFoundException ex) {
                 ex.printStackTrace();
