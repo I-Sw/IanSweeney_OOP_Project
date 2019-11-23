@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="257952c3-40c6-4c3b-8d52-25c26aa27783" name="Default Changelist" comment="Moved usage to a main menu and refactored CharacterMenu to work with the new menu system">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/CharacterMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IanSweeney_OOP_Project/CharacterMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CharacterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharacterMenu.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,6 +116,7 @@
       <workItem from="1573729548297" duration="7052000" />
       <workItem from="1574179612670" duration="6291000" />
       <workItem from="1574449977643" duration="3990000" />
+      <workItem from="1574514331608" duration="4230000" />
     </task>
     <task id="LOCAL-00001" summary="Added Sorcerer class and button handling to return it">
       <created>1573215190206</created>

@@ -37,7 +37,6 @@ public class CharacterMenu implements ActionListener{
 
     public CharacterMenu()
     {
-
         guiWindow = new JFrame("Character Control");
         guiMenuBar = new JMenuBar();
         charList = new JMenu("Character List");
@@ -109,6 +108,16 @@ public class CharacterMenu implements ActionListener{
             System.out.println("Num: " + number);
             //Sets text of the character info label
             charInfoLabel.setText(characters.get(number).toString());
+
+            //TEMPORARY CODE - Testing toString problems by returning all array values
+            String names = "";
+            for(int i = 0; i < characters.size(); i++)
+            {
+                names += (characters.get(i).getCharName() + " - ");
+            }
+            System.out.println("List contents: " + names);
+            //TEMPORARY CODE
+
             //Repaints the GUI window to account for the changes in the info label
             guiWindow.repaint();
         }
