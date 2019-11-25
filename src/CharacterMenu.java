@@ -5,6 +5,7 @@ import java.awt.event.*;
 import java.io.*;
 import java.lang.Character;
 import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class CharacterMenu implements ActionListener{
@@ -125,18 +126,10 @@ public class CharacterMenu implements ActionListener{
         if(s.equals("Save Characters"))
         {
             File charStorage = new File("charStorage.dat");
-            File charMenuStorage = new File("charMenuStorage.dat");
             try{
-                FileOutputStream fileOut = new FileOutputStream(charStorage);
-                ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+                ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(new File("charStorage.dat")));
                 objectOut.writeObject(characters);
-                objectOut.flush();
                 objectOut.close();
-
-                /*FileOutputStream fileOut2 = new FileOutputStream(charMenuStorage);
-                ObjectOutputStream objectOut2 = new ObjectOutputStream(fileOut2);
-                objectOut2.writeObject(charList);
-                objectOut2.close();*/
             }
             catch (IOException ex) {
                 ex.printStackTrace();
@@ -147,20 +140,12 @@ public class CharacterMenu implements ActionListener{
         if(s.equals("Load Saved Characters"))
         {
             File charStorage = new File("charStorage.dat");
-            File charMenuStorage = new File("charMenuStorage.dat");
             try{
-                FileInputStream fileIn = new FileInputStream(charStorage);
-                ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+                ObjectInputStream objectIn = new ObjectInputStream(new FileInputStream(new File("charStorage.dat")));
                 characters = (LinkedList<CharSheet>) objectIn.readObject();
                 objectIn.close();
 
                 System.out.println(characters.get(0).getCharName());
-
-                /*FileInputStream fileIn2 = new FileInputStream(charMenuStorage);
-                ObjectInputStream objectIn2 = new ObjectInputStream(fileIn2);
-                charList = (JMenu) objectIn2.readObject();
-                objectIn.close();
-                guiWindow.repaint();*/
             }
             catch (IOException | ClassNotFoundException ex) {
                 ex.printStackTrace();
