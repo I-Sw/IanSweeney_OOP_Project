@@ -2,19 +2,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class MapMenu implements ActionListener {
     public JFrame mapMenuGui = new JFrame("Map Menu");
-    public LinkedList<BattleMap> mapList;
+    public ArrayList<BattleMap> mapList;
     public BattleMap currentMap;
     public JMenu mapListMenu;
 
     public MapMenu()
     {
-        mapList = new LinkedList<>();
+        mapList = new ArrayList<>();
         mapMenuGui.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        mapMenuGui.setSize(800,800);
+        mapMenuGui.setSize(300,300);
         JMenuBar menuBar = new JMenuBar();
         //Creating Menu for creating maps
         JMenu mapCreationMenu = new JMenu("Manage Maps");
@@ -28,15 +29,6 @@ public class MapMenu implements ActionListener {
         newMap.addActionListener(this);
         saveMaps.addActionListener(this);
         loadMaps.addActionListener(this);
-        //Creating Menu for adding and removing Images
-        JMenu imageMenu = new JMenu("Add/Remove Images");
-        menuBar.add(imageMenu);
-        JMenuItem addImage = new JMenuItem("Add Image");
-        JMenuItem removeImage = new JMenuItem("Remove Image");
-        imageMenu.add(addImage);
-        imageMenu.add(removeImage);
-        addImage.addActionListener(this);
-        removeImage.addActionListener(this);
         //Creating map list menu
         mapListMenu = new JMenu("Map List");
         menuBar.add(mapListMenu);
@@ -46,10 +38,6 @@ public class MapMenu implements ActionListener {
         //TEMPORARY CODE
 
         //
-
-
-
-
         mapMenuGui.setVisible(true);
     }
 
@@ -65,16 +53,6 @@ public class MapMenu implements ActionListener {
             JMenuItem mapMenuItem = new JMenuItem((mapList.size()+1) + " - Map");
             mapMenuItem.addActionListener(this);
             mapListMenu.add(mapMenuItem);
-            mapMenuGui.repaint();
-        }
-
-        if(s.equals("Add Image"))
-        {
-            java.net.URL imgUrl = MapMenu.class.getResource("images/Cleric.png");
-            ImageIcon image2 = new ImageIcon(new ImageIcon(imgUrl).getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-            JLabel imageLabel = new JLabel(image2);
-            currentMap.addImage(imageLabel,5,5);
-            currentMap.repaint();
             mapMenuGui.repaint();
         }
 
