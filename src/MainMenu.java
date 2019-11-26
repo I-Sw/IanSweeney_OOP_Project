@@ -1,11 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 
 public class MainMenu implements ActionListener
 {
     private static MainMenu m = new MainMenu();
     private static CharacterMenu charMenu = new CharacterMenu();
+    private static MapMenu mapMenu;
 
     public static void main(String args[])
     {
@@ -16,7 +18,7 @@ public class MainMenu implements ActionListener
     {
         JFrame mainMenuGui = new JFrame("Main Menu");
         mainMenuGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainMenuGui.setSize(300,100);
+        mainMenuGui.setSize(300,800);
         mainMenuGui.setLayout(new FlowLayout());
         JButton charMenuButton = new JButton("Character Menu");
         charMenuButton.addActionListener(m);
@@ -35,6 +37,12 @@ public class MainMenu implements ActionListener
         if(s.equals("Character Menu"))
         {
             charMenu.openCharMenu();
+        }
+
+        if(s.equals("Map Menu"))
+        {
+            mapMenu = new MapMenu();
+            mapMenu.openMapMenu();
         }
     }
 }
