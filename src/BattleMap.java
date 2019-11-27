@@ -93,7 +93,13 @@ public class BattleMap extends JPanel implements Serializable, ActionListener, M
     public void mouseDragged(MouseEvent e)
     {
         //Use thread.sleep (Measures in milliseconds - 1000 = 1 second)
+
         e.getComponent().setBounds(e.getX(), e.getY(), e.getComponent().getWidth(), e.getComponent().getHeight());
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
