@@ -1,7 +1,7 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class CharSheet implements Serializable {
+public class CharSheet implements Serializable {
     private static String charName;
     private static String playerName;
     private static String background;

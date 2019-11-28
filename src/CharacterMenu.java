@@ -1,14 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.desktop.SystemEventListener;
 import java.awt.event.*;
 import java.io.*;
 import java.lang.Character;
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
-public class CharacterMenu implements ActionListener{
+public class CharacterMenu implements ActionListener, Serializable{
     //Creating the main gui window, and gui components
     private static JFrame guiWindow;
     private static JMenuBar guiMenuBar;
@@ -16,7 +13,7 @@ public class CharacterMenu implements ActionListener{
     private static JPanel charInfo;
     private static JLabel charInfoLabel;
     //Creating an LinkedList to store character information
-    public LinkedList<CharSheet> characters;
+    public ArrayList<CharSheet> characters;
     //Creates an object of the character info input menu
     public CharInfoInput charInput;
     //Creates variables for character info input
@@ -43,7 +40,7 @@ public class CharacterMenu implements ActionListener{
         charList = new JMenu("Character List");
         charInfo = new JPanel();
         charInfoLabel = new JLabel("");
-        characters = new LinkedList<>();
+        characters = new ArrayList<>();
         charInput = new  CharInfoInput();
 
         //Setting the properties of the JFrame window
@@ -142,7 +139,7 @@ public class CharacterMenu implements ActionListener{
             File charStorage = new File("charStorage.dat");
             try{
                 ObjectInputStream objectIn = new ObjectInputStream(new FileInputStream(new File("charStorage.dat")));
-                characters = (LinkedList<CharSheet>) objectIn.readObject();
+                characters = (ArrayList<CharSheet>) objectIn.readObject();
                 objectIn.close();
 
                 System.out.println(characters.get(0).getCharName());

@@ -1,12 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 public class BattleMap extends JPanel implements Serializable, ActionListener, MouseMotionListener {
     private JFrame mapGui;
@@ -67,7 +63,6 @@ public class BattleMap extends JPanel implements Serializable, ActionListener, M
 
     public void addImage(JLabel imageLabel, int xPos, int yPos)
     {
-
         this.add(imageLabel, xPos, yPos);
         this.repaint();
     }
@@ -85,7 +80,7 @@ public class BattleMap extends JPanel implements Serializable, ActionListener, M
             JLabel imageLabel = new JLabel(image2);
             imageLabel.addMouseMotionListener(this);
             mapGui.add(imageLabel);
-            this.repaint();
+            mapGui.repaint();
         }
     }
 
@@ -93,12 +88,16 @@ public class BattleMap extends JPanel implements Serializable, ActionListener, M
     public void mouseDragged(MouseEvent e)
     {
         //Use thread.sleep (Measures in milliseconds - 1000 = 1 second)
-
-        e.getComponent().setBounds(e.getX(), e.getY(), e.getComponent().getWidth(), e.getComponent().getHeight());
-        try {
-            Thread.sleep(200);
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
+        if(e.getX() < mapWidth && e.getX() > -(mapWidth) && e.getY() < mapHeight && e.getY() > -(mapHeight))
+        {
+            e.getComponent().setBounds(e.getX(), e.getY(), e.getComponent().getWidth(), e.getComponent().getHeight());
+            try {
+                Thread.sleep(50);
+                System.out.print("X: " + e.getX() + " Y:" + e.getY() + " ");
+                mapGui.repaint();
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 

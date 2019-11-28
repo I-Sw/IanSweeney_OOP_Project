@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -9,7 +10,7 @@ public class MapMenu implements ActionListener {
     public JFrame mapMenuGui = new JFrame("Map Menu");
     public ArrayList<BattleMap> mapList;
     public BattleMap currentMap;
-    public JMenu mapListMenu;
+    public static JMenu mapMenuList;
 
     public MapMenu()
     {
@@ -30,11 +31,11 @@ public class MapMenu implements ActionListener {
         saveMaps.addActionListener(this);
         loadMaps.addActionListener(this);
         //Creating map list menu
-        mapListMenu = new JMenu("Map List");
-        menuBar.add(mapListMenu);
+        mapMenuList = new JMenu("Map List");
+        menuBar.add(mapMenuList);
         //Adding MenuBar to the GUI
         mapMenuGui.setJMenuBar(menuBar);
-        mapListMenu = new JMenu("Map List");
+        mapMenuList = new JMenu("Map List");
         //TEMPORARY CODE
 
         //
@@ -49,10 +50,14 @@ public class MapMenu implements ActionListener {
         if(s.equals("Create New Map"))
         {
             BattleMap map = new BattleMap();
+            System.out.println("Map Added");
             mapList.add(map);
-            JMenuItem mapMenuItem = new JMenuItem((mapList.size()+1) + " - Map");
+            String mapText = (mapList.size()) + " - Map";
+            System.out.println("Map Text: " + mapText);
+            JMenuItem mapMenuItem = new JMenuItem(mapText);
             mapMenuItem.addActionListener(this);
-            mapListMenu.add(mapMenuItem);
+            mapMenuList.add(mapMenuItem);
+            mapMenuList.repaint();
             mapMenuGui.repaint();
         }
 
@@ -63,11 +68,37 @@ public class MapMenu implements ActionListener {
             mapMenuGui.repaint();
         }
 
+        if(s.equals("Save Current Maps"))
+        {
+            try{
+                ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(new File("mapStorage.dat")));
+                objectOut.writeObject(mapList);
+                objectOut.close();
+            }
+            catch (IOException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(null,"Error! Maps were unable to be saved, please try again","Error Saving Maps",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+
         if(s.equals("Load Saved Maps"))
         {
-            mapMenuGui.add(mapList.get(0));
-            currentMap = mapList.get(0);
-            mapMenuGui.repaint();
+            try{
+                ObjectInputStream objectIn = new ObjectInputStream(new FileInputStream(new File("mapStorage.dat")));
+                mapList = (ArrayList<BattleMap>) objectIn.readObject();
+                objectIn.close();
+                for(BattleMap map : mapList)
+                {
+                    JMenuItem mapMenuItem = new JMenuItem((mapList.size()+1) + " - Map");
+                    mapMenuItem.addActionListener(this);
+                    mapMenuList.add(mapMenuItem);
+                }
+                System.out.println("Maps Saved");
+            }
+            catch (IOException | ClassNotFoundException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(null,"Error! Mapss were unable to be loaded, please try again","Error Saving Maps",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
