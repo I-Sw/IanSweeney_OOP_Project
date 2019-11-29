@@ -11,6 +11,10 @@ public class Spell implements Serializable {
     private int range;
     private ArrayList<String> classes;
     private String description;
+    private boolean verbal;
+    private boolean somatic;
+    private boolean concentration;
+    private boolean ritual;
 
     public Spell()
     {
@@ -25,11 +29,29 @@ public class Spell implements Serializable {
         nullClasses.add("-No Classes-");
         this.classes = nullClasses;
         this.description = "-No Description-";
+        this.verbal = false;
+        this.somatic = false;
+        this.concentration = false;
+        this.ritual = false;
     }
 
-    public Spell(String name)
+    public Spell(String name, int level, String school, String castTime, String components, String duration, int range, ArrayList<String> classes, String description, boolean v, boolean s, boolean c, boolean r)
     {
-        if(name.equals("Fire Bolt"))
+        this.name = name;
+        this.level = level;
+        this.school = school;
+        this.castTime = castTime;
+        this.components = components;
+        this.duration = duration;
+        this.range = range;
+        this.classes = classes;
+        this.description = description;
+        this.verbal = v;
+        this.somatic = s;
+        this.concentration = c;
+        this.ritual = r;
+
+        /*if(name.equals("Fire Bolt"))
         {
             this.name = name;
             this.level = 0;
@@ -46,6 +68,11 @@ public class Spell implements Serializable {
                                "\nMake a ranged spell attack against the target. \nOn a hit, the target takes 1d10 fire damage." +
                                "\nA flammable object hit by this spell ignites if it isn’t being worn or carried." +
                                "\n\nThis spell's damage increases by an additional 1d10 when you reach 5th level, 11th level, and 17th level.";
-        }
+        }*/
+    }
+
+    public String getName()
+    {
+        return this.name;
     }
 }

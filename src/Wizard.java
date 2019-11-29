@@ -3,8 +3,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Wizard extends Caster implements SpellCaster, Serializable {
-    private static ArrayList<String> spellsKnown;
-    private static ArrayList<String> spellsPrepared;
+    private static ArrayList<Spell> spellsKnown;
+    private static ArrayList<Spell> spellsPrepared;
 
     public Wizard()
     {
@@ -27,7 +27,7 @@ public class Wizard extends Caster implements SpellCaster, Serializable {
     @Override
     public void addSpell()
     {
-        String spell = JOptionPane.showInputDialog("Enter the name of your new spell");
+        Spell spell = new Spell();
         spellsKnown.add(spell);
     }
 
@@ -37,7 +37,7 @@ public class Wizard extends Caster implements SpellCaster, Serializable {
         String spellPrep = JOptionPane.showInputDialog("Enter the name of the spell you wish to prepare");
         for(int i = 0; i <= spellsKnown.size(); i++)
         {
-            if(spellsKnown.get(i) == spellPrep)
+            if(spellsKnown.get(i).getName() == spellPrep)
             {
                 spellsPrepared.add(spellsKnown.get(i));
                 JOptionPane.showMessageDialog(null,"Spell prepared");
@@ -53,7 +53,7 @@ public class Wizard extends Caster implements SpellCaster, Serializable {
         for(int i = 0; i <= spellsKnown.size(); i++)
         {
             //Searches the known spell list and removes the spell if found
-            if(spellsKnown.get(i) == spellRemove)
+            if(spellsKnown.get(i).getName() == spellRemove)
             {
                 spellsKnown.remove(i);
                 JOptionPane.showMessageDialog(null,"Spell removed");
@@ -61,7 +61,7 @@ public class Wizard extends Caster implements SpellCaster, Serializable {
                 //Searches the prepared list and removes the spell if found
                 for(int j = 0; j <= spellsPrepared.size(); j++)
                 {
-                    if(spellsPrepared.get(j) == spellRemove)
+                    if(spellsPrepared.get(j).getName() == spellRemove)
                     {
                         spellsPrepared.remove(j);
                         JOptionPane.showMessageDialog(null,"Spell removed from prepared list");
