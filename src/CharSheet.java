@@ -2,25 +2,26 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class CharSheet implements Serializable {
-    private static String charName;
-    private static String playerName;
-    private static String background;
-    private static String alignment;
-    private static String race;
-    private static String charClass;
-    private static int level;
-    private static int strength;
-    private static int dexterity;
-    private static int constitution;
-    private static int intelligence;
-    private static int wisdom;
-    private static int charisma;
-    private static int movementSpeed;
-    private static int maxHP;
-    private static int currentHP;
-    private static ArrayList<Item> items;
-    private static ArrayList<Item> equippedItems;
+    private String charName;
+    private String playerName;
+    private String background;
+    private String alignment;
+    private String race;
+    private String charClass;
+    private int level;
+    private int strength;
+    private int dexterity;
+    private int constitution;
+    private int intelligence;
+    private int wisdom;
+    private int charisma;
+    private int movementSpeed;
+    private int maxHP;
+    private int currentHP;
+    private ArrayList<Item> items;
+    private ArrayList<Item> equippedItems;
 
+    //Null constructor for CharSheet which fills in default values
     public CharSheet()
     {
         setCharName("-No Character Name-");
@@ -41,6 +42,7 @@ public class CharSheet implements Serializable {
         setCurrentHP(10);
     }
 
+    //Multiple Argument constructor that creates a character with all of its data inputted
     public CharSheet(String charName, String playerName, String background, String alignment, String race, int level, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int movementSpeed, int maxHP)
     {
         setCharName(charName);
@@ -221,6 +223,7 @@ public class CharSheet implements Serializable {
         return this.currentHP;
     }
 
+    //This method subtracts health from the character
     public void removeHP(int damage)
     {
         setCurrentHP(getCurrentHP() - damage);
@@ -230,6 +233,7 @@ public class CharSheet implements Serializable {
         }
     }
 
+    //This method adds health to the character
     public void addHP(int healing)
     {
         setCurrentHP(getCurrentHP() + healing);

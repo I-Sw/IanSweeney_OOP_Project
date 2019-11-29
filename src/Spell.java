@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Spell {
+public class Spell implements Serializable {
     private String name;
     private int level;
     private String school;

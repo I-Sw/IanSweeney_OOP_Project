@@ -33,6 +33,7 @@ public class CharacterMenu implements ActionListener, Serializable{
     private int moveSpeed;
     private int maxHP;
 
+    //Constructs the menu
     public CharacterMenu()
     {
         guiWindow = new JFrame("Character Control");
@@ -44,7 +45,7 @@ public class CharacterMenu implements ActionListener, Serializable{
         charInput = new  CharInfoInput();
 
         //Setting the properties of the JFrame window
-        guiWindow.setSize(1000,800);
+        guiWindow.setSize(800,800);
         guiWindow.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         //Creating a menu for character control
         JMenu characterMenu = new JMenu("Add/Remove Characters");
@@ -79,9 +80,10 @@ public class CharacterMenu implements ActionListener, Serializable{
 
     }// End menu constructor
 
+    //This method is used by the Main Menu to open the Character Menu
     public void openCharMenu()
     {
-        //This method is used by the Main Menu to open the Character Menu
+
         guiWindow.setVisible(true);
     }
 
@@ -122,7 +124,6 @@ public class CharacterMenu implements ActionListener, Serializable{
 
         if(s.equals("Save Characters"))
         {
-            File charStorage = new File("charStorage.dat");
             try{
                 ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(new File("charStorage.dat")));
                 objectOut.writeObject(characters);
@@ -136,13 +137,29 @@ public class CharacterMenu implements ActionListener, Serializable{
 
         if(s.equals("Load Saved Characters"))
         {
-            File charStorage = new File("charStorage.dat");
             try{
                 ObjectInputStream objectIn = new ObjectInputStream(new FileInputStream(new File("charStorage.dat")));
                 characters = (ArrayList<CharSheet>) objectIn.readObject();
                 objectIn.close();
 
                 System.out.println(characters.get(0).getCharName());
+
+                int charCounter = 0;
+                System.out.println("Array Size: " + characters.size());
+                charList.removeAll();
+                for (int i = 0; i < characters.size(); i++)
+                {
+                    System.out.println("i " + i);
+                    //This enhanced for loop takes loaded characters and re-adds them to the JMenu
+                    //Creates a string with character info to base the menu item off of
+                    String charInfoString = (i + 1) + " - " + characters.get(i).getCharClass() + " - " + characters.get(i).getCharName();
+                    //Creates a JMenuItem from the previously created string
+                    JMenuItem newCharacter = new JMenuItem(charInfoString);
+                    //Adding the action listener to this new menu item
+                    newCharacter.addActionListener(this);
+                    //Adding the new menu item to the charList JMenu
+                    charList.add(newCharacter);
+                }
             }
             catch (IOException | ClassNotFoundException ex) {
                 ex.printStackTrace();
@@ -182,11 +199,11 @@ public class CharacterMenu implements ActionListener, Serializable{
                     //Passes character info into a method which adds the character to the CharSheet list
                     addCharacter(charClass, charName, playerName, background, alignment, race, level, strength, dexterity, constitution, intelligence, wisdom, charisma, moveSpeed, maxHP);
                     //Creating a new JMenuItem with the character info corresponding to the new character
-                    JMenuItem character = new JMenuItem(charInfoString);
+                    JMenuItem newCharacter = new JMenuItem(charInfoString);
                     //Adding the action listener to this new menu item
-                    character.addActionListener(this);
+                    newCharacter.addActionListener(this);
                     //Adding the new menu item to the charList JMenu
-                    charList.add(character);
+                    charList.add(newCharacter);
                     //Repainting the window so the new character appears in the character list
                     guiWindow.repaint();
                 }
@@ -203,6 +220,7 @@ public class CharacterMenu implements ActionListener, Serializable{
     public boolean validateChar(String cClass, String cName, String pName, String background, String alignment,
                                 String race, int level, int strength, int dexterity, int constitution,
                                 int intelligence, int  wisdom, int charisma, int moveSpeed, int maxHP)
+
     {
         if(!cClass.equals("") && !cName.equals("") && !pName.equals("") && !background.equals("") && !alignment.equals("") && !race.equals(""))
         {
@@ -223,6 +241,7 @@ public class CharacterMenu implements ActionListener, Serializable{
         }
     }
 
+    //This method is used to add characters to the character list
     public void addCharacter(String cClass, String cName, String pName, String background, String alignment, String race, int level, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int moveSpeed, int maxHP)
     {
         //If statement handling for different character classes

@@ -14,11 +14,12 @@ public class MainMenu implements ActionListener
         menuGui();
     }
 
+    //Constructs the menu gui
     private static void menuGui()
     {
         JFrame mainMenuGui = new JFrame("Main Menu");
         mainMenuGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainMenuGui.setSize(300,800);
+        mainMenuGui.setSize(400,400);
         mainMenuGui.setLayout(new FlowLayout());
         JButton charMenuButton = new JButton("Character Menu");
         charMenuButton.addActionListener(m);

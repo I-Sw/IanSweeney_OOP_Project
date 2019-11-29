@@ -1,7 +1,9 @@
+import javax.swing.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Wizard extends Caster implements SpellCaster, Serializable {
+    private static ArrayList<String> spellsKnown;
     private static ArrayList<String> spellsPrepared;
 
     public Wizard()
@@ -21,8 +23,51 @@ public class Wizard extends Caster implements SpellCaster, Serializable {
         return super.toString();
     }
 
+    //This method adds a spell to the known spell list
     @Override
-    public void addSpell() {
+    public void addSpell()
+    {
+        String spell = JOptionPane.showInputDialog("Enter the name of your new spell");
+        spellsKnown.add(spell);
+    }
 
+    //This method adds a spell to the prepared spell list
+    public void prepareSpell()
+    {
+        String spellPrep = JOptionPane.showInputDialog("Enter the name of the spell you wish to prepare");
+        for(int i = 0; i <= spellsKnown.size(); i++)
+        {
+            if(spellsKnown.get(i) == spellPrep)
+            {
+                spellsPrepared.add(spellsKnown.get(i));
+                JOptionPane.showMessageDialog(null,"Spell prepared");
+            }
+        }
+    }
+
+    //This method removes a spell from the known spell list
+    @Override
+    public void removeSpell()
+    {
+        String spellRemove = JOptionPane.showInputDialog("Enter the name of the spell you wish to remove");
+        for(int i = 0; i <= spellsKnown.size(); i++)
+        {
+            //Searches the known spell list and removes the spell if found
+            if(spellsKnown.get(i) == spellRemove)
+            {
+                spellsKnown.remove(i);
+                JOptionPane.showMessageDialog(null,"Spell removed");
+
+                //Searches the prepared list and removes the spell if found
+                for(int j = 0; j <= spellsPrepared.size(); j++)
+                {
+                    if(spellsPrepared.get(j) == spellRemove)
+                    {
+                        spellsPrepared.remove(j);
+                        JOptionPane.showMessageDialog(null,"Spell removed from prepared list");
+                    }
+                }
+            }
+        }
     }
 }

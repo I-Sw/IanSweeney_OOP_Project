@@ -2,9 +2,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Caster extends CharSheet implements Serializable {
-    public static int[] spellSlots = new int[10];
-    private static int[] slotsUsed = new int[10];
-    private static ArrayList<Spell> spellsKnown;
+    public int[] spellSlots = new int[10];
+    private int[] slotsUsed = new int[10];
+    private ArrayList<Spell> spellsKnown;
 
     public Caster()
     {
