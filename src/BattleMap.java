@@ -58,7 +58,7 @@ public class BattleMap extends JPanel implements Serializable, ActionListener, M
         removeImage.addActionListener(this);
         //Adding MenuBar to the GUI
         mapGui.setJMenuBar(menuBar);
-        mapGui.setVisible(true);
+        //mapGui.setVisible(true);
     }
 
     public void addImage(JLabel imageLabel, int xPos, int yPos)

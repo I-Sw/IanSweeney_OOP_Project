@@ -10,15 +10,19 @@ public class MapMenu implements ActionListener {
     public JFrame mapMenuGui = new JFrame("Map Menu");
     public ArrayList<BattleMap> mapList;
     public BattleMap currentMap;
-    public static JMenu mapMenuList;
+    public JMenu mapMenuList;
 
     public MapMenu()
     {
+        //Creating a list to store maps
         mapList = new ArrayList<>();
+        //Setting properties of the GUI window
         mapMenuGui.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         mapMenuGui.setSize(300,300);
+        //Creating and adding a JMenuBar to the GUI
         JMenuBar menuBar = new JMenuBar();
-        //Creating Menu for creating maps
+        mapMenuGui.setJMenuBar(menuBar);
+        //Creating and adding a menu dropdown for managing maps
         JMenu mapCreationMenu = new JMenu("Manage Maps");
         menuBar.add(mapCreationMenu);
         JMenuItem newMap = new JMenuItem("Create New Map");
@@ -27,44 +31,52 @@ public class MapMenu implements ActionListener {
         mapCreationMenu.add(newMap);
         mapCreationMenu.add(saveMaps);
         mapCreationMenu.add(loadMaps);
+        //Adding the action listener to the buttons on the menu
         newMap.addActionListener(this);
         saveMaps.addActionListener(this);
         loadMaps.addActionListener(this);
-        //Creating map list menu
+        //Creating and adding menu item to list maps for retrieval
         mapMenuList = new JMenu("Map List");
         menuBar.add(mapMenuList);
-        //Adding MenuBar to the GUI
-        mapMenuGui.setJMenuBar(menuBar);
-        mapMenuList = new JMenu("Map List");
-        //TEMPORARY CODE
-
-        //
+        //Setting the completed GUI to visible
         mapMenuGui.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e)
     {
+        //Stores action command as a string value
         String s = e.getActionCommand();
         System.out.println(s);
+        //Action handling for new maps
         if(s.equals("Create New Map"))
         {
+            //Creating a new BattleMap object
             BattleMap map = new BattleMap();
             System.out.println("Map Added");
+            //Storing the BattleMap object in the map list
             mapList.add(map);
+            //Creates a string corresponding to the new map
             String mapText = (mapList.size()) + " - Map";
             System.out.println("Map Text: " + mapText);
+            //Creates a new menu item with the previously created string
             JMenuItem mapMenuItem = new JMenuItem(mapText);
+            //Adds action listener to the new menu item
             mapMenuItem.addActionListener(this);
+            //Adding the new menu item to the map list JMenu
             mapMenuList.add(mapMenuItem);
+            //Repainting the GUI
             mapMenuList.repaint();
             mapMenuGui.repaint();
         }
 
+        //Action handling for when a stored map is clicked in the menu
         if(Character.isDigit(s.charAt(0)))
         {
-            mapMenuGui.add(mapList.get(Character.getNumericValue(s.charAt(0))));
-            currentMap = mapList.get(Character.getNumericValue(s.charAt(0)));
+            //Retrieves the Map in the list at the position corresponding to the action command string, adding it to the GUI
+            mapMenuGui.add(mapList.get((Character.getNumericValue(s.charAt(0))-1)));
+            currentMap = mapList.get((Character.getNumericValue(s.charAt(0))-1));
+            mapMenuGui.add(currentMap);
             mapMenuGui.repaint();
         }
 
@@ -89,7 +101,7 @@ public class MapMenu implements ActionListener {
                 objectIn.close();
                 for(BattleMap map : mapList)
                 {
-                    JMenuItem mapMenuItem = new JMenuItem((mapList.size()+1) + " - Map");
+                    JMenuItem mapMenuItem = new JMenuItem((mapList.size()) + " - Map");
                     mapMenuItem.addActionListener(this);
                     mapMenuList.add(mapMenuItem);
                 }
