@@ -6,18 +6,20 @@ import java.awt.image.BufferedImage;
 public class MainMenu implements ActionListener
 {
     private static MainMenu m = new MainMenu();
-    private static CharacterMenu charMenu = new CharacterMenu();
-    private static MapMenu mapMenu;
+    private CharacterMenu charMenu = new CharacterMenu();
+    private MapMenu mapMenu;
+    private static JFrame mainMenuGui;
 
     public static void main(String args[])
     {
         menuGui();
+        setWindowListener();
     }
 
     //Constructs the menu gui
     private static void menuGui()
     {
-        JFrame mainMenuGui = new JFrame("Main Menu");
+        mainMenuGui = new JFrame("Main Menu");
         mainMenuGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainMenuGui.setSize(400,400);
         mainMenuGui.setLayout(new FlowLayout());
@@ -45,5 +47,38 @@ public class MainMenu implements ActionListener
             mapMenu = new MapMenu();
             mapMenu.openMapMenu();
         }
+    }
+
+    private static void setWindowListener()
+    {
+        WindowListener windowClosing = new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) { }
+
+            @Override
+            public void windowClosing(WindowEvent e)
+            {
+                int confirm = JOptionPane.showConfirmDialog(null, "Are you sure to exit? You have unsaved characters", "Exit Confirmation", JOptionPane.YES_NO_OPTION);
+                if (confirm == 0) {
+                    System.exit(0);
+                }
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) { }
+
+            @Override
+            public void windowIconified(WindowEvent e) { }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) { }
+
+            @Override
+            public void windowActivated(WindowEvent e) { }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) { }
+        };
+        mainMenuGui.addWindowListener(windowClosing);
     }
 }

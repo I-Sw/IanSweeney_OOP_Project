@@ -5,6 +5,12 @@ import java.io.*;
 import java.lang.Character;
 import java.util.ArrayList;
 
+/**
+ * A gui class which mananges creation and storage of characters
+ *
+ * @author Ian Sweeney
+ * @see CharSheet
+ */
 public class CharacterMenu implements ActionListener, Serializable{
     //Creating the main gui window, and gui components
     private static JFrame guiWindow;
@@ -32,7 +38,12 @@ public class CharacterMenu implements ActionListener, Serializable{
     private int charisma;
     private int moveSpeed;
     private int maxHP;
+    private CharSheet currentCharacter;
+    public boolean saved = true;
 
+    /**
+     * A constructor which creates a new object of a menu gui for use in the main menu
+     */
     //Constructs the menu
     public CharacterMenu()
     {
@@ -80,6 +91,9 @@ public class CharacterMenu implements ActionListener, Serializable{
 
     }// End menu constructor
 
+    /**
+     * A method which sets the menu to visible allowing the main menu to open the character menu
+     */
     //This method is used by the Main Menu to open the Character Menu
     public void openCharMenu()
     {
@@ -108,6 +122,9 @@ public class CharacterMenu implements ActionListener, Serializable{
             System.out.println("Num: " + number);
             //Sets text of the character info label
             charInfoLabel.setText(characters.get(number).toString());
+            JButton clearButton = new JButton("Add New Spell");
+            clearButton.addActionListener(this);
+            charInfo.add(clearButton);
 
             //TEMPORARY CODE - Testing toString problems by returning all array values
             String names = "";
@@ -128,6 +145,7 @@ public class CharacterMenu implements ActionListener, Serializable{
                 ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(new File("charStorage.dat")));
                 objectOut.writeObject(characters);
                 objectOut.close();
+                saved = true;
             }
             catch (IOException ex) {
                 ex.printStackTrace();
@@ -214,8 +232,35 @@ public class CharacterMenu implements ActionListener, Serializable{
                 JOptionPane.showMessageDialog(null,"Invalid Data! - Ensure your level and stats are all numbers","Invalid Data Entered",JOptionPane.ERROR_MESSAGE);
             }
         }
+
+        if(s.equals("Add New Spell"))
+        {
+            /*
+            Handling for adding new spells
+            Currently unusable, issues using the "Add Spell" method since everything is cast as CharSheet not as spellcasting subclasses
+            */
+        }
     }// End actionPerformed
 
+    /**
+     * A method which validates user entered data to ensure it is valid to fit a CharSheet object
+     * @param cClass Program supplied String for character class
+     * @param cName User supplied String for character name
+     * @param pName User supplied String for player name
+     * @param background User supplied String for character background
+     * @param alignment User supplied String for character alignment
+     * @param race User supplied String for character race
+     * @param level User supplied int for character level
+     * @param strength User supplied int for character strength score
+     * @param dexterity User supplied int for character dexterity score
+     * @param constitution User supplied int for character constitution score
+     * @param intelligence User supplied int for character intelligence score
+     * @param wisdom User supplied int for character wisdom score
+     * @param charisma User supplied int for character charisma score
+     * @param moveSpeed User supplied int for character movement speed
+     * @param maxHP User supplied int for character maximum health points
+     * @return A boolean value, denoting if the information entered is valid to create a new character
+     */
     //validateChar method, which validates entered info, to ensure
     public boolean validateChar(String cClass, String cName, String pName, String background, String alignment,
                                 String race, int level, int strength, int dexterity, int constitution,
@@ -241,9 +286,27 @@ public class CharacterMenu implements ActionListener, Serializable{
         }
     }
 
+    /**
+     * A method which adds a new character to the character list
+     * @param cClass Program supplied String for character class
+     * @param cName User supplied String for character name
+     * @param pName User supplied String for player name
+     * @param background User supplied String for character background
+     * @param alignment User supplied String for character alignment
+     * @param race User supplied String for character race
+     * @param level User supplied int for character level
+     * @param strength User supplied int for character strength score
+     * @param dexterity User supplied int for character dexterity score
+     * @param constitution User supplied int for character constitution score
+     * @param intelligence User supplied int for character intelligence score
+     * @param wisdom User supplied int for character wisdom score
+     * @param charisma User supplied int for character charisma score
+     * @param moveSpeed User supplied int for character movement speed
+     */
     //This method is used to add characters to the character list
     public void addCharacter(String cClass, String cName, String pName, String background, String alignment, String race, int level, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int moveSpeed, int maxHP)
     {
+        saved = false;
         //If statement handling for different character classes
         if(charClass.equals("Wizard"))
         {
@@ -255,5 +318,11 @@ public class CharacterMenu implements ActionListener, Serializable{
             Sorcerer sorcerer = new Sorcerer(charName, playerName, background, alignment, race, level, strength, dexterity, constitution, intelligence, wisdom, charisma, moveSpeed, maxHP);
             characters.add(sorcerer);
         }
+    }
+
+    //This method is used by the main menu to check if characters have been saved
+    public boolean isSaved()
+    {
+        return this.saved;
     }
 }//End CharacterMenu
