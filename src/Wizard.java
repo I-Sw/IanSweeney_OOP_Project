@@ -3,8 +3,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Wizard extends Caster implements SpellCaster, Serializable {
-    private static ArrayList<Spell> spellsKnown;
-    private static ArrayList<Spell> spellsPrepared;
+    private ArrayList<Spell> spellsKnown;
+    private ArrayList<Spell> spellsPrepared;
 
     public Wizard()
     {
@@ -16,18 +16,14 @@ public class Wizard extends Caster implements SpellCaster, Serializable {
         super(charName, playerName, background, alignment, race, level, strength, dexterity, constitution, intelligence, wisdom, charisma, movementSpeed, maxHP);
         setCharClass("Wizard");
         setSpellSlots("Wizard", level);
-    }
-
-    public String toString()
-    {
-        return super.toString();
+        spellsKnown = new ArrayList();
+        spellsPrepared = new ArrayList();
     }
 
     //This method adds a spell to the known spell list
     @Override
-    public void addSpell()
+    public void addSpell(Spell spell)
     {
-        Spell spell = new Spell();
         spellsKnown.add(spell);
     }
 
@@ -69,5 +65,30 @@ public class Wizard extends Caster implements SpellCaster, Serializable {
                 }
             }
         }
+    }
+
+
+    public String toString()
+    {
+        //Creates a String representation of all known spells
+        String knownSpells = "<br/>Spells Known...";
+        if(spellsKnown.size() > 0)
+        {
+            for(Spell spell : spellsKnown)
+            {
+                knownSpells += ("<br/>" + spell.getName());
+            }
+        }
+        //Creates a String representation of all prepared spells
+        String preparedSpells = "<br/>Spells Prepared...";
+        if (spellsPrepared.size() > 0)
+        {
+            for(Spell spell : spellsPrepared)
+            {
+                preparedSpells += ("<br/>" +spell.getName());
+            }
+        }
+        //Returns toString of super class and adds on list of known and prepared spells
+        return super.toString() + "<br/><br/>" + knownSpells + "<br/><br/>" + preparedSpells + "</html>";
     }
 }

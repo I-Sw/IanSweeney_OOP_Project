@@ -3,7 +3,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Sorcerer extends Caster implements SpellCaster, Serializable {
-    private static ArrayList<String> spellsKnown;
+    private ArrayList<Spell> spellsKnown;
 
     public Sorcerer()
     {
@@ -15,6 +15,7 @@ public class Sorcerer extends Caster implements SpellCaster, Serializable {
         super(charName, playerName, background, alignment, race, level, strength, dexterity, constitution, intelligence, wisdom, charisma, movementSpeed, maxHP);
         setCharClass("Sorcerer");
         setSpellSlots("Sorcerer", level);
+        spellsKnown = new ArrayList();
     }
 
     public String toString()
@@ -23,9 +24,8 @@ public class Sorcerer extends Caster implements SpellCaster, Serializable {
     }
 
     @Override
-    public void addSpell()
+    public void addSpell(Spell spell)
     {
-        String spell = JOptionPane.showInputDialog("Enter the name of your new spell");
         spellsKnown.add(spell);
     }
 
@@ -35,7 +35,7 @@ public class Sorcerer extends Caster implements SpellCaster, Serializable {
         String spellRemove = JOptionPane.showInputDialog("Enter the name of the spell you wish to remove");
         for(int i = 0; i <= spellsKnown.size(); i++)
         {
-            if(spellsKnown.get(i) == spellRemove)
+            if(spellsKnown.get(i).getName() == spellRemove)
             {
                 spellsKnown.remove(i);
                 JOptionPane.showMessageDialog(null,"Spell removed");

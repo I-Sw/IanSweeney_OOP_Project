@@ -261,4 +261,9 @@ public class CharSheet implements Serializable {
                 "<br/>Movement Speed: " + getMovementSpeed() + "ft" +
                 "<br/>Max HP: " + getMaxHP();
     }
+
+    public void addSpell(Spell spell)
+    {
+        System.out.println("Error - this character should not be able to learn spells");
+    }
 }

@@ -37,9 +37,10 @@ public class Spell implements ActionListener, Serializable {
         //Setting GUI size and layout
         spellInputGUi.setSize(350, 600);
         spellInputGUi.setLayout(null);
-        //Creating title, class combo box and a clear data button
+        //Creating title, clear data and add spell buttons
         JLabel lblTitle = new JLabel ("Spell Info Input");
         JButton clearButton = new JButton("Clear Spell Data");
+        JButton addButton = new JButton("Add New Spell");
         //Creating and setting text for all required JLabels
         JLabel lblSpellName = new JLabel ("Spell Name", SwingConstants.RIGHT);
         JLabel lblSpellLevel = new JLabel ("Spell Level", SwingConstants.RIGHT);
@@ -54,8 +55,8 @@ public class Spell implements ActionListener, Serializable {
         JLabel lblConcentration = new JLabel("Concentration", SwingConstants.RIGHT);
         JLabel lblRitual = new JLabel("Ritual", SwingConstants.RIGHT);
         //Creating all required JTextFields
-        txtSpellName = new JTextField ();
-        txtSpellLevel = new JTextField ();
+        txtSpellName = new JTextField();
+        txtSpellLevel = new JTextField();
         txtSchool = new JTextField();
         txtCastTime = new JTextField();
         txtComponents = new JTextField();
@@ -92,10 +93,11 @@ public class Spell implements ActionListener, Serializable {
         spellInputGUi.add(chkSomatic);
         spellInputGUi.add(chkConcentration);
         spellInputGUi.add(chkRitual);
+        spellInputGUi.add(addButton);
         spellInputGUi.add(clearButton);
         //Placing the components on the GUI window
         lblTitle.setBounds(30, 25, 200, 25);
-        lblSpellName.setBounds(30,50,200,25);
+        lblSpellName.setBounds(30,50,100,25);
         lblSpellLevel.setBounds (30, 75, 100, 25);
         lblSchool.setBounds (30, 100, 100, 25);
         lblCastTime.setBounds (30, 125, 100, 25);
@@ -119,9 +121,11 @@ public class Spell implements ActionListener, Serializable {
         chkSomatic.setBounds (135, 275, 100, 25);
         chkConcentration.setBounds (135, 300, 100, 25);
         chkRitual.setBounds (135, 325, 100, 25);
-        clearButton.setBounds(30, 400, 200, 25);
+        addButton.setBounds(30, 375, 200,25);
+        addButton.addActionListener(this);
+        clearButton.setBounds(30, 425, 200, 25);
         clearButton.addActionListener(this);
-        spellInputGUi.setVisible(false);
+        spellInputGUi.setVisible(true);
     }
 
     public Spell(String name, int level, String school, String castTime, String components, String duration, int range, ArrayList<String> classes, String description, boolean v, boolean s, boolean c, boolean r)
@@ -182,6 +186,30 @@ public class Spell implements ActionListener, Serializable {
             chkSomatic.setSelected(false);
             chkConcentration.setSelected(false);
             chkRitual.setSelected(false);
+        }
+
+        if(s.equals("Add New Spell"))
+        {
+            try
+            {
+                this.name = txtSpellName.getText();
+                this.level = Integer.parseInt(txtSpellLevel.getText());
+                this.school= txtSchool.getText();
+                this.castTime = txtCastTime.getText();
+                this.components = txtComponents.getText();
+                this.duration = txtDuration.getText();
+                this.range = Integer.parseInt(txtRange.getText());
+                this.description = txtSpellDescription.getText();
+                this.verbal = chkVerbal.isSelected();
+                this.somatic = chkSomatic.isSelected();
+                this.concentration= chkConcentration.isSelected();
+                this.ritual = chkRitual.isSelected();
+            }
+            //Catches NumberFormatExceptions from the parsing of the Int values and prints out an error message
+            catch (NumberFormatException numException)
+            {
+                JOptionPane.showMessageDialog(null,"Invalid Data! - Ensure level and range are numbers","Invalid Data Entered",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 }

@@ -165,7 +165,6 @@ public class Caster extends CharSheet implements Serializable {
                 "<br/>Level 6 Spell Slots: " + this.slotsUsed[6] +
                 "<br/>Level 7 Spell Slots: " + this.slotsUsed[7] +
                 "<br/>Level 8 Spell Slots: " + this.slotsUsed[8] +
-                "<br/>Level 9 Spell Slots: " + this.slotsUsed[9] +
-                "</html>";
+                "<br/>Level 9 Spell Slots: " + this.slotsUsed[9];
     }
 }

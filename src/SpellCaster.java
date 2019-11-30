@@ -1,4 +1,4 @@
 public interface SpellCaster extends WeaponFighter{
-    void addSpell();
+    void addSpell(Spell spell);
     void removeSpell();
 }

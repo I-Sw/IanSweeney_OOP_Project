@@ -38,8 +38,9 @@ public class CharacterMenu implements ActionListener, Serializable{
     private int charisma;
     private int moveSpeed;
     private int maxHP;
-    private CharSheet currentCharacter;
-    public boolean saved = true;
+    private int currentCharacter;
+    private JButton addSpellButton;
+    public boolean saved;
 
     /**
      * A constructor which creates a new object of a menu gui for use in the main menu
@@ -54,7 +55,6 @@ public class CharacterMenu implements ActionListener, Serializable{
         charInfoLabel = new JLabel("");
         characters = new ArrayList<>();
         charInput = new  CharInfoInput();
-
         //Setting the properties of the JFrame window
         guiWindow.setSize(800,800);
         guiWindow.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -88,7 +88,13 @@ public class CharacterMenu implements ActionListener, Serializable{
         guiWindow.add(charInput.getGUI());
         //Adds the confirm button onto the character menu panel
         charInput.addConfirmButton(confirmButton);
-
+        //Creating a button for adding new spells
+        addSpellButton = new JButton("Add New Spell");
+        addSpellButton.addActionListener(this);
+        charInfo.add(addSpellButton);
+        addSpellButton.setVisible(false);
+        //Setting saved to a default of true for main menu exit handling
+        this.saved = true;
     }// End menu constructor
 
     /**
@@ -122,9 +128,17 @@ public class CharacterMenu implements ActionListener, Serializable{
             System.out.println("Num: " + number);
             //Sets text of the character info label
             charInfoLabel.setText(characters.get(number).toString());
-            JButton clearButton = new JButton("Add New Spell");
-            clearButton.addActionListener(this);
-            charInfo.add(clearButton);
+            //Sets current character to the chosen character
+            currentCharacter = number;
+            //Tests to ensure that the current character is an instance of Caster
+            if(characters.get(currentCharacter) instanceof Caster)
+            {
+                //Sets up the add spell button for use with the newly set current character
+                System.out.println("Caster");
+                addSpellButton.setVisible(true);
+            }
+            else
+                addSpellButton.setVisible(false);
 
             //TEMPORARY CODE - Testing toString problems by returning all array values
             String names = "";
@@ -141,11 +155,12 @@ public class CharacterMenu implements ActionListener, Serializable{
 
         if(s.equals("Save Characters"))
         {
+            this.saved = true;
             try{
                 ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(new File("charStorage.dat")));
                 objectOut.writeObject(characters);
                 objectOut.close();
-                saved = true;
+
             }
             catch (IOException ex) {
                 ex.printStackTrace();
@@ -235,10 +250,8 @@ public class CharacterMenu implements ActionListener, Serializable{
 
         if(s.equals("Add New Spell"))
         {
-            /*
-            Handling for adding new spells
-            Currently unusable, issues using the "Add Spell" method since everything is cast as CharSheet not as spellcasting subclasses
-            */
+            Spell spell = new Spell();
+            characters.get(currentCharacter).addSpell(spell);
         }
     }// End actionPerformed
 
