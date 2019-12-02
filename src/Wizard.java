@@ -3,8 +3,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Wizard extends Caster implements SpellCaster, Serializable {
-    private ArrayList<Spell> spellsKnown;
-    private ArrayList<Spell> spellsPrepared;
+    public ArrayList<Spell> spellsKnown;
+    public ArrayList<Spell> spellsPrepared;
 
     public Wizard()
     {

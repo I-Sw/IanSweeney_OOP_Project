@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class Caster extends CharSheet implements Serializable {
     public int[] spellSlots = new int[10];
-    private int[] slotsUsed = new int[10];
-    private ArrayList<Spell> spellsKnown;
+    public int[] slotsUsed = new int[10];
+    public ArrayList<Spell> spellsKnown;
 
     public Caster()
     {
@@ -135,11 +135,6 @@ public class Caster extends CharSheet implements Serializable {
             slots += Integer.toString(this.spellSlots[i]);
         }
         return slots;
-    }
-
-    public void selectSpells(String className, int level)
-    {
-        //Spell selection goes here
     }
 
     public String toString()

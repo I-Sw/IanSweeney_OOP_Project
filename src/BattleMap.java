@@ -5,8 +5,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class BattleMap extends JPanel implements Serializable, ActionListener, MouseMotionListener {
-    private JFrame mapGui;
-    private String name;
+    public JFrame mapGui;
+    public String name;
     private int mapHeight;
     private int mapWidth;
     private ArrayList<ImageIcon> imageList;
@@ -59,12 +59,6 @@ public class BattleMap extends JPanel implements Serializable, ActionListener, M
         //Adding MenuBar to the GUI
         mapGui.setJMenuBar(menuBar);
         //mapGui.setVisible(true);
-    }
-
-    public void addImage(JLabel imageLabel, int xPos, int yPos)
-    {
-        this.add(imageLabel, xPos, yPos);
-        this.repaint();
     }
 
     @Override
